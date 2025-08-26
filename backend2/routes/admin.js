@@ -7,6 +7,7 @@ router.post('/login', (req, res) => {
   if (!username || !password) return res.status(400).json({ message: 'Missing' });
   if (username === process.env.ADMIN_USERNAME && password === process.env.ADMIN_PASSWORD) {
     req.session.isAdmin = true;
+    console.log("✅ Session after login:", req.session);
     return res.json({ ok: true });
   }
   return res.status(401).json({ message: 'Invalid credentials' });
