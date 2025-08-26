@@ -7,7 +7,7 @@ export default function AdminDashboard(){
   async function load(){
     setLoading(true);
     try {
-      const res = await fetch((import.meta.env.REACT_APP_BACKEND_URL || 'http://localhost:5000') + '/api/admin/ngos', { credentials: 'include' });
+      const res = await fetch((import.meta.env.VITE_APP_BACKEND_URL || 'http://localhost:5000') + '/api/admin/ngos', { credentials: 'include' });
       if (!res.ok) { const d = await res.json(); alert('Unauthorized'); return; }
       const data = await res.json(); setNgos(data);
     } catch (err) { alert('Error: '+err.message) } finally { setLoading(false); }
@@ -17,7 +17,7 @@ export default function AdminDashboard(){
 
   async function verify(id){
     try {
-      const res = await fetch((import.meta.env.REACT_APP_BACKEND_URL || 'http://localhost:5000') + '/api/admin/verify/' + id, {
+      const res = await fetch((import.meta.env.VITE_APP_BACKEND_URL || 'http://localhost:5000') + '/api/admin/verify/' + id, {
         method: 'POST', credentials: 'include'
       });
       if (res.ok) {

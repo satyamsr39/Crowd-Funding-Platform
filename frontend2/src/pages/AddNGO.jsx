@@ -36,7 +36,7 @@ export default function AddNGO(){
       form.append('goal', goal);
       if (file) form.append('image', file);
 
-      const res = await fetch((import.meta.env.REACT_APP_BACKEND_URL || 'http://localhost:5000') + '/api/ngos', {
+      const res = await fetch((import.meta.env.VITE_APP_BACKEND_URL || 'http://localhost:5000') + '/api/ngos', {
         method: 'POST',
         body: form
       });

@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 export default function NGOs(){
   const [ngos, setNgos] = useState([])
   useEffect(()=>{
-    fetch((import.meta.env.REACT_APP_BACKEND_URL || 'http://localhost:5000') + '/api/ngos')
+    fetch((import.meta.env.VITE_APP_BACKEND_URL || 'http://localhost:5000') + '/api/ngos')
       .then(r=>r.json()).then(setNgos)
   },[])
-  const backendUrl = import.meta.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+  const backendUrl = import.meta.env.VITE_APP_BACKEND_URL || 'http://localhost:5000';
   return (
     <div className="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {ngos.map(n => (

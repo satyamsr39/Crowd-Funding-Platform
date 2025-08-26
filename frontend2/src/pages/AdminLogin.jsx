@@ -8,7 +8,7 @@ export default function AdminLogin(){
 
   async function login(e){
     e.preventDefault();
-    const res = await fetch((import.meta.env.REACT_APP_BACKEND_URL || 'http://localhost:5000') + '/api/admin/login', {
+    const res = await fetch((import.meta.env.VITE_APP_BACKEND_URL || 'http://localhost:5000') + '/api/admin/login', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: user, password: pass }), credentials: 'include'
     });
