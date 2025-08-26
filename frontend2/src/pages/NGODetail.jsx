@@ -55,7 +55,7 @@ export default function NGODetail(){
         {/* <img src={`http://localhost:5000/uploads/${ngo.image}` || 'https://via.placeholder.com/800x300?text=No+Image'} alt="" className="w-full h-60 object-cover rounded mb-4" /> */}
            <img 
   src={ngo.image 
-    ? `${backendUrl}/uploads/${n.image}` 
+    ? `${backendUrl}/uploads/${ngo.image}` 
     : 'https://ashaf.org/wp-content/uploads/2020/12/PRYS1937.jpg'} 
 />
         <h2 className="text-2xl font-semibold">{ngo.name}</h2>
