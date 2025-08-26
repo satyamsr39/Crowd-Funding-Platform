@@ -17,7 +17,7 @@ export default function NGOs(){
         <img 
   src={n.image 
     ? `${backendUrl}/uploads/${n.image}` 
-    : 'https://ashaf.org/wp-content/uploads/2020/12/PRYS1937.jpg'} 
+    : n.image } 
 />
           </div>
           <h3 className="text-lg font-semibold ">{n.name}</h3>
