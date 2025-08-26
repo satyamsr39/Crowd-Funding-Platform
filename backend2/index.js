@@ -8,7 +8,13 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 dotenv.config();
 const app = express();
-app.use(cors({ origin: true, credentials: true }));
+// app.use(cors({ origin: true, credentials: true }));
+app.use(cors({
+  origin: process.env.FRONTEND_URL,
+  credentials: true
+}));
+
+
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
@@ -20,21 +26,24 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 //   saveUninitialized: false,
 //   cookie: { httpOnly: true, maxAge: 1000 * 60 * 60 * 2 }
 // }));
-
 app.use(session({
   name: 'charity.sid',
   secret: process.env.SESSION_SECRET || 'devsecret',
   resave: false,
   saveUninitialized: false,
   store: MongoStore.create({
-    mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost:27017/charity_dev',
+    client: mongoose.connection.getClient(),
     collectionName: 'sessions'
   }),
-  cookie: { 
+  cookie: {
     httpOnly: true,
-    maxAge: 1000 * 60 * 60 * 2 // 2 hours
+    maxAge: 1000 * 60 * 60 * 2, // 2h
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+    secure: process.env.NODE_ENV === 'production' // must be true on HTTPS
   }
 }));
+
+
 
 
 const PORT = process.env.PORT || 5000;
