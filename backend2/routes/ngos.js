@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 router.post('/', upload.single('image'), async (req, res) => {
   try {
     const payload = req.body;
-    if (req.file) payload.image = '/' + req.file.filename;
+    if (req.file) payload.image = + req.file.filename;
     payload.verified = false;
     const ngo = await NGO.create(payload);
     return res.status(201).json({ ok: true, ngo });
