@@ -27,14 +27,15 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   store: MongoStore.create({
-    client: mongoose.connection.getClient(),   
-    collectionName: 'sessions'                 
+    mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost:27017/charity_dev',
+    collectionName: 'sessions'
   }),
   cookie: { 
-    httpOnly: true, 
+    httpOnly: true,
     maxAge: 1000 * 60 * 60 * 2 // 2 hours
   }
 }));
+
 
 const PORT = process.env.PORT || 5000;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/charity_dev';
