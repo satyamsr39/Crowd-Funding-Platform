@@ -54,7 +54,7 @@ export default function NGODetail(){
       <div className="bg-white p-6 rounded shadow">
         {/* <img src={`http://localhost:5000/uploads/${ngo.image}` || 'https://via.placeholder.com/800x300?text=No+Image'} alt="" className="w-full h-60 object-cover rounded mb-4" /> */}
            <img 
-  src={n.image 
+  src={ngo.image 
     ? `${backendUrl}/uploads/${n.image}` 
     : 'https://ashaf.org/wp-content/uploads/2020/12/PRYS1937.jpg'} 
 />
