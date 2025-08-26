@@ -10,7 +10,6 @@ export default function Home() {
           "url('https://images.unsplash.com/photo-1485217988980-11786ced9454?auto=format&fit=crop&w=1470&q=80')",
       }}
     >
-      {/* Subtle light overlay with low opacity */}
       <div className="absolute inset-0 bg-white bg-opacity-30"></div>
 
       <div className="relative max-w-3xl px-6 text-center">

@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const session = require('express-session');
@@ -12,12 +13,27 @@ app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
+// app.use(session({
+//   name: 'charity.sid',
+//   secret: process.env.SESSION_SECRET || 'devsecret',
+//   resave: false,
+//   saveUninitialized: false,
+//   cookie: { httpOnly: true, maxAge: 1000 * 60 * 60 * 2 }
+// }));
+
 app.use(session({
   name: 'charity.sid',
   secret: process.env.SESSION_SECRET || 'devsecret',
   resave: false,
   saveUninitialized: false,
-  cookie: { httpOnly: true, maxAge: 1000 * 60 * 60 * 2 }
+  store: MongoStore.create({
+    client: mongoose.connection.getClient(),   
+    collectionName: 'sessions'                 
+  }),
+  cookie: { 
+    httpOnly: true, 
+    maxAge: 1000 * 60 * 60 * 2 // 2 hours
+  }
 }));
 
 const PORT = process.env.PORT || 5000;
