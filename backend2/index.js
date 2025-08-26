@@ -8,6 +8,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 dotenv.config();
 const app = express();
+app.set('trust proxy', 1); 
 // app.use(cors({ origin: true, credentials: true }));
 app.use(cors({
   origin: process.env.FRONTEND_URL,
