@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 export default function Home() {
   return (
     <div
-      className="relative min-h-[90vh] flex items-center justify-center bg-cover bg-center overflow-y-0"
+      className="relative min-h-[90vh] flex items-center justify-center bg-cover bg-center overflow-y-0 "
       style={{
         backgroundImage:
-          "url('https://images.unsplash.com/photo-1485217988980-11786ced9454?auto=format&fit=crop&w=1470&q=80')",
+          "url('https://www.imghippo.com/i/RgM7485lz.png')",
       }}
     >
       <div className="absolute inset-0 bg-white bg-opacity-30"></div>
