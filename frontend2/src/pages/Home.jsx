@@ -58,7 +58,7 @@ export default function Home() {
         {/* Recruiter/test note */}
         {isTestMode && (
           <p className="mt-3 text-sm text-gray-200/90">
-            Recruiter note: This demo uses Razorpay Test Mode. No real charges; use test cards/UPI only.
+            Recruiter note: This demo uses Razorpay Test Mode. No real charges; use test UPI only(test@upi).
           </p>
         )}
 
