@@ -4,19 +4,19 @@ import { Link } from 'react-router-dom'
 export default function Home() {
   return (
     <div
-      className="relative min-h-[90vh] flex items-center justify-center bg-cover bg-center overflow-y-0 "
+      className="relative min-h-[90vh] flex items-center justify-center  bg-center overflow-y-0 "
       style={{
         backgroundImage:
-          "url('https://www.imghippo.com/i/RgM7485lz.png')",
+          "url('https://i.imghippo.com/files/RgM7485lz.png')",
       }}
     >
-      <div className="absolute inset-0 bg-white bg-opacity-30"></div>
+      <div className="absolute inset-0 bg-black/50 bg-opacity-30"></div>
 
       <div className="relative max-w-3xl px-6 text-center">
-        <h1 className="text-5xl font-extrabold text-gray-900 drop-shadow-sm">
+        <h1 className="text-5xl font-extrabold text-gray-100 drop-shadow-sm">
           Charity Platform
         </h1>
-        <p className="mt-4 text-gray-800 text-lg md:text-xl drop-shadow-sm">
+        <p className="mt-4 text-gray-100 text-lg md:text-xl drop-shadow-sm">
           Find verified NGOs and individuals and donate quickly and safely.
         </p>
         <div className="mt-8">
